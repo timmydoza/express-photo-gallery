@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{title}}</title>
+        <link href="css/lightgallery.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </head>
+    <body class="home">
+
+      <div id="lightgallery">
+        Error.  Tell Tim about this.
+      </div>
+
+      <script type="text/javascript">
+      $(document).ready(function(){
+        $('#lightgallery').lightGallery({{{data}}});
+        $('#lightgallery').on('onAfterOpen.lg', function(){
+          $('.lg-close').hide();
+          setTimeout(function(){
+            $('.lg-toogle-thumb').click();
+          }, 5000);
+        });
+      });
+      </script>
+
+      <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+      <script src="js/lightgallery.min.js"></script>
+      <script src="js/lg-fullscreen.min.js"></script>
+      <script src="js/lg-thumbnail.min.js"></script>
+      <script src="js/lg-zoom.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "photos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrent-transform": "^1.0.0",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^2.1.2",
+    "gulp-image-resize": "^0.8.0",
+    "gulp-rename": "^1.2.2",
+    "lightgallery": "^1.2.21",
+    "lodash": "^4.13.1",
+    "mustache": "^2.2.1"
+  }
+}
