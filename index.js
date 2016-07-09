@@ -3,7 +3,7 @@ var express = require('express');
 var directoryExists = require(__dirname + '/lib/directory_exists');
 var getPayload = require(__dirname + '/lib/get_payload');
 var mustache = require('mustache');
-var template = fs.readFileSync(__dirname + '/assets/template.html').toString();
+var template = fs.readFileSync(__dirname + '/lib/template.html').toString();
 mustache.parse(template);
 
 module.exports = function(photoPath, options) {
@@ -27,7 +27,7 @@ module.exports = function(photoPath, options) {
     paths.thumbs = photoPath + '/thumbs';
   }
 
-  app.use('/', express.static(__dirname + '/assets'));
+  app.use('/lg', express.static(__dirname + '/node_modules/lightgallery/dist'));
   app.use('/photos', express.static(paths.previews || photoPath));
   if (paths.thumbs) app.use('/thumbs', express.static(paths.thumbs));
   if (paths.previews) app.use('/downloads', express.static(photoPath));
