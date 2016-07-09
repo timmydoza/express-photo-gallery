@@ -1,14 +1,14 @@
 {
-  "name": "photos",
-  "version": "1.0.0",
+  "name": "express-photo-gallery",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["photo", "photos", "lightgallery", "gallery", "photogallery"],
+  "author": "Tim Mendoza <timmydoza@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "concurrent-transform": "^1.0.0",
     "express": "^4.14.0",
