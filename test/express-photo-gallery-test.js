@@ -1,7 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect;
 var chaiHttp = require('chai-http');
-var recursiveReadDir = require('recursive-readdir-sync');
 var async = require('async');
 var resolveModulePath = require(__dirname + '/../lib/resolve_module_path')
 chai.use(chaiHttp);
