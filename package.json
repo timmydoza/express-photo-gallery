@@ -1,6 +1,6 @@
 {
   "name": "express-photo-gallery",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Express middleware which serves a stylish and responsive photo gallery using jQuery lightgallery.",
   "main": "index.js",
   "scripts": {
@@ -16,10 +16,6 @@
   "author": "Tim Mendoza <timmydoza@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "concurrent-transform": "^1.0.0",
-    "gulp-debug": "^2.1.2",
-    "gulp-image-resize": "^0.8.0",
-    "gulp-rename": "^1.2.2",
     "lightgallery": "^1.2.21",
     "lodash": "^4.13.1",
     "mustache": "^2.2.1",
