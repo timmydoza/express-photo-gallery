@@ -29,7 +29,7 @@ module.exports = function(photoPath, options) {
     paths.thumbs = photoPath + '/thumbs';
   }
 
-  app.use('/lg', static(resolveModulePath('lightgallery') + '/dist'));
+  app.use(static(resolveModulePath('lightgallery') + '/dist'));
   app.use('/photos', static(paths.previews || photoPath));
   if (paths.thumbs) app.use('/thumbs', static(paths.thumbs));
   if (paths.previews) app.use('/downloads', static(photoPath));
