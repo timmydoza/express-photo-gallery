@@ -1,7 +1,5 @@
 var chai = require('chai');
 var expect = chai.expect;
-var chaiHttp = require('chai-http');
-chai.use(chaiHttp);
 
 var directoryExists = require(__dirname + '/../lib/directory_exists');
 
