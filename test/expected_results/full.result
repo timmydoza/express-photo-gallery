@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Test Title</title>
+        <link href="css/lightgallery.min.css" rel="stylesheet">
+          <style>
+            body {
+              background-color: black;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </head>
+    <body class="home">
+
+      <div id="lightgallery">
+      </div>
+
+      <script type="text/javascript">
+      $(document).ready(function(){
+        $('#lightgallery').lightGallery({"download":true,"thumbnail":true,"title":"Test Title","dynamic":true,"dynamicEl":[{"src":"photos/file1.jpg","thumb":"thumbs/file1.jpg","downloadUrl":"downloads/file1.jpg"},{"src":"photos/file2.jpg","thumb":"thumbs/file2.jpg","downloadUrl":"downloads/file2.jpg"},{"src":"photos/file3.jpg","thumb":"thumbs/file3.jpg","downloadUrl":"downloads/file3.jpg"}],"closable":false,"escKey":false});
+        $('#lightgallery').on('onAfterOpen.lg', function(){
+          $('.lg-close').hide();
+          setTimeout(function(){
+            $('.lg-toogle-thumb').click();
+          }, 5000);
+        });
+      });
+      </script>
+
+      <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+      <script src="js/lightgallery.min.js"></script>
+      <script src="js/lg-fullscreen.min.js"></script>
+      <script src="js/lg-thumbnail.min.js"></script>
+      <script src="js/lg-zoom.min.js"></script>
+    </body>
+</html>
