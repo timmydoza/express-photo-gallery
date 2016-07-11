@@ -1,4 +1,5 @@
 # express-photo-gallery
+[![Build Status](https://travis-ci.org/timmydoza/express-photo-gallery.svg?branch=master)](https://travis-ci.org/timmydoza/express-photo-gallery)
 
 EPG (express-photo-gallery) is a node module that creates an Express.js middleware function for hosting stylish and responsive photo galleries using [jQuery lightgallery](http://sachinchoolur.github.io/lightGallery/).
 
