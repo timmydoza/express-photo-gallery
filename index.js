@@ -1,7 +1,7 @@
 var fs = require('fs');
 var Router = require('router');
 var static = require('serve-static');
-var directoryExists = require(__dirname + '/lib/directory_exists');
+var directoryExists = require('directory-exists').sync;
 var getPayload = require(__dirname + '/lib/get_payload');
 var resolveModulePath = require(__dirname + '/lib/resolve_module_path');
 var mustache = require('mustache');

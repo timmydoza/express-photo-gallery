@@ -16,6 +16,7 @@
   "author": "Tim Mendoza <timmydoza@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "directory-exists": "^1.0.0",
     "lightgallery": "^1.2.21",
     "lodash": "^4.13.1",
     "mustache": "^2.2.1",
