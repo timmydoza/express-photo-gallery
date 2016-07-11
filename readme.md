@@ -22,7 +22,7 @@ app.use('/photos', Gallery('path_to_photos', options));
 app.listen(3000);
 ```
 
-That's it! [See it in action here!](http://timmydoza.com/epg)
+That's it! 
 
 EPG will automatically look through the provided directory for a `thumbs` subdirectory and `previews` subdirectory, which should both contain files with the same filenames as those in the base folder.  For example:
 
