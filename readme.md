@@ -4,7 +4,7 @@ EPG (express-photo-gallery) is a node module that creates an Express.js middlewa
 
 `npm install express-photo-gallery`
 
-## Usage: 
+## Usage:
 
 ```
 var express = require('express');
@@ -50,3 +50,8 @@ Note: `epg-prep` must be installed globally.
 `epg-prep path_to_photos`
 
 Using `epg-prep` to generate `thumbs` and `previews` subdirectories is especially useful if you have a directory of large photos from a digital camera.
+
+### Todo:
+
+- Add support for more file types
+- Add ability to add prefix to files in `previews` and `thumbs`
