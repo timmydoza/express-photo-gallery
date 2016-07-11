@@ -1,6 +1,6 @@
 {
   "name": "express-photo-gallery",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Express middleware which serves a stylish and responsive photo gallery using jQuery lightgallery.",
   "main": "index.js",
   "scripts": {
