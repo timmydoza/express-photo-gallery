@@ -3,10 +3,14 @@
 
 EPG (express-photo-gallery) is a node module that creates an Express.js middleware function for hosting stylish and responsive photo galleries using [jQuery lightgallery](http://sachinchoolur.github.io/lightGallery/).
 
-`npm install express-photo-gallery`
+[See a sample gallery here](http://timmydoza.com/express-photo-gallery).
 
 ## Usage:
 
+#### Install:
+`npm install express-photo-gallery`
+
+#### Implement:
 ```
 var express = require('express');
 var app = express();
@@ -22,7 +26,7 @@ app.use('/photos', Gallery('path_to_photos', options));
 app.listen(3000);
 ```
 
-That's it!
+That's it!  [See it in action here](http://timmydoza.com/express-photo-gallery).
 
 EPG will automatically look through the provided directory for a `thumbs` subdirectory and `previews` subdirectory, which should both contain files with the same filenames as those in the base folder.  For example:
 
@@ -80,3 +84,4 @@ Confirm that ImageMagick is properly set up by executing `convert -help` in a te
 - Add support for more file types
 - Add ability to add prefix to files in `previews` and `thumbs`
 - Tests for erg-prep
+- Add feature to randomize photo order on each load
