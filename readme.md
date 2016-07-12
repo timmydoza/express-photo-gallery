@@ -22,7 +22,7 @@ app.use('/photos', Gallery('path_to_photos', options));
 app.listen(3000);
 ```
 
-That's it! 
+That's it!
 
 EPG will automatically look through the provided directory for a `thumbs` subdirectory and `previews` subdirectory, which should both contain files with the same filenames as those in the base folder.  For example:
 
@@ -44,6 +44,10 @@ If your photo directory does not have `thumbs` or `previews`, EPG will host the 
 
 If you would like to generate `thumbs` and `previews` automatically, use `epg-prep`:
 
+## epg-prep
+
+`epg-prep` is a mutithreaded command-line helper utility which automatically generates image previews and thumbnails from a directory of jpg images.  The previews and thumbnails are stored in `previews` and `thumbs` subdirectories, respectively.
+
 Note: `epg-prep` must be installed globally.
 
 `npm install -g epg-prep`
@@ -52,7 +56,27 @@ Note: `epg-prep` must be installed globally.
 
 Using `epg-prep` to generate `thumbs` and `previews` subdirectories is especially useful if you have a directory of large photos from a digital camera.
 
+#### GraphicsMagick or ImageMagick
+
+`epg-prep` depends on [ImageMagick](http://www.imagemagick.org/script/index.php) or [GraphicsMagick](http://www.graphicsmagick.org/), so make sure they are installed on your system and properly set up in your PATH.
+
+Ubuntu:
+```
+apt-get install imagemagick
+apt-get install graphicsmagick
+```
+
+Mac OS X (using Homebrew):
+```
+brew install imagemagick
+brew install graphicsmagick
+```
+
+
+Confirm that ImageMagick is properly set up by executing `convert -help` in a terminal.
+
 ### Todo:
 
 - Add support for more file types
 - Add ability to add prefix to files in `previews` and `thumbs`
+- Tests for erg-prep

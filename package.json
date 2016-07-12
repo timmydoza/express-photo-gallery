@@ -1,6 +1,6 @@
 {
   "name": "express-photo-gallery",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Express middleware which serves a stylish and responsive photo gallery using jQuery lightgallery.",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,11 @@
     "gallery",
     "photogallery"
   ],
-  "author": "Tim Mendoza <timmydoza@gmail.com>",
+  "author": "timmydoza <timmydoza@gmail.com>",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/timmydoza/express-photo-gallery"
+  },
   "license": "MIT",
   "dependencies": {
     "directory-exists": "^1.0.0",
