@@ -6,6 +6,7 @@ var getPayload = require(__dirname + '/lib/get_payload');
 var resolveModulePath = require(__dirname + '/lib/resolve_module_path');
 var mustache = require('mustache');
 var template = fs.readFileSync(__dirname + '/lib/template.html').toString();
+var url = require('url');
 mustache.parse(template);
 
 module.exports = function(photoPath, options) {
@@ -16,31 +17,57 @@ module.exports = function(photoPath, options) {
   var paths = {
     photos: photoPath,
     previews: null,
-    thumbs: null
+    thumbs: null,
   };
 
-  if (!directoryExists(photoPath)) throw new Error('Must provide valid path for photos');
+  var urlObj = url.parse(photoPath);
+  var s3 = (urlObj.protocol === 's3');
 
-  if (directoryExists(photoPath + '/previews')) {
-    paths.previews = photoPath + '/previews';
+  if (s3) {
+    path.bucket = urlObj.hostname;
   }
 
-  if (directoryExists(photoPath + '/thumbs')) {
-    paths.thumbs = photoPath + '/thumbs';
+  if (!s3) {
+
+    if (!directoryExists(photoPath)) throw new Error('Must provide valid path for photos');
+
+    if (directoryExists(photoPath + '/previews')) {
+      paths.previews = photoPath + '/previews';
+    }
+
+    if (directoryExists(photoPath + '/thumbs')) {
+      paths.thumbs = photoPath + '/thumbs';
+    }
+
+    app.use('/photos', static(paths.previews || photoPath));
+    if (paths.thumbs) app.use('/thumbs', static(paths.thumbs));
+    if (paths.previews) app.use('/downloads', static(photoPath));
+
   }
 
   app.use(static(resolveModulePath('lightgallery') + '/dist'));
-  app.use('/photos', static(paths.previews || photoPath));
-  if (paths.thumbs) app.use('/thumbs', static(paths.thumbs));
-  if (paths.previews) app.use('/downloads', static(photoPath));
 
   app.get('/', function(req, res) {
-    getPayload(paths, options, function(payload) {
-      res.send(mustache.render(template, {
-        title: options.title || 'Photo Gallery',
-        data: JSON.stringify(payload)
-      }));
-    });
+    if (s3) {
+
+      getPayload.s3(paths, options, function(payload) {
+        res.send(mustache.render(template, {
+          title: options.title || 'Photo Gallery',
+          data: JSON.stringify(payload)
+        }));
+      });
+
+    } else {
+
+      getPayload(paths, options, function(payload) {
+        res.send(mustache.render(template, {
+          title: options.title || 'Photo Gallery',
+          data: JSON.stringify(payload)
+        }));
+      });
+
+    }
+
   });
 
   return app;
