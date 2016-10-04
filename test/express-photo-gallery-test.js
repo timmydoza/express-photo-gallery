@@ -81,14 +81,14 @@ describe('the default gallery with no thumbnails', function() {
 
   it('should serve static assets', function(done) {
     chai.request(noThumbsGallery)
-      .get('/js/lg-zoom.min.js')
+      .get('/js/lightgallery.js')
       .end(function(err, res) {
         //logResult('no_thumbs', res.text);
         res.on('data', function(data) {
           expect(err).to.be.null;
           expect(res.status).to.eql(200);
           expect(res.headers['content-type']).to.eql('application/javascript');
-          expect(data.toString()).to.eql(fs.readFileSync(resolveModulePath('lightgallery') + '/dist/js/lg-zoom.min.js').toString());
+          expect(data.toString()).to.eql(fs.readFileSync(resolveModulePath('lightgallery') + '/dist/js/lightgallery.js').toString());
           done();
         });
       });
@@ -185,14 +185,14 @@ describe('the default gallery with thumbnails and previews', function() {
 
   it('should serve static assets', function(done) {
     chai.request(fullGallery)
-      .get('/full/js/lg-zoom.min.js')
+      .get('/full/js/lightgallery.js')
       .end(function(err, res) {
         //logResult('no_thumbs', res.text);
         res.on('data', function(data) {
           expect(err).to.be.null;
           expect(res.status).to.eql(200);
           expect(res.headers['content-type']).to.eql('application/javascript');
-          expect(data.toString()).to.eql(fs.readFileSync(resolveModulePath('lightgallery') + '/dist/js/lg-zoom.min.js').toString());
+          expect(data.toString()).to.eql(fs.readFileSync(resolveModulePath('lightgallery') + '/dist/js/lightgallery.js').toString());
           done();
         });
       });
