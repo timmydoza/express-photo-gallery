@@ -1,6 +1,6 @@
 {
   "name": "express-photo-gallery",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Express middleware which serves a stylish and responsive photo gallery using jQuery lightgallery.",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "https://github.com/timmydoza/express-photo-gallery"
   },
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": {
     "deep-equal": "^1.0.1",
     "directory-exists": "^1.0.0",
