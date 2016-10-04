@@ -4,7 +4,7 @@
   "description": "Express middleware which serves a stylish and responsive photo gallery using jQuery lightgallery.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -t 4000"
   },
   "keywords": [
     "photo",
