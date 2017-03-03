@@ -70,6 +70,11 @@ apt-get install imagemagick
 apt-get install graphicsmagick
 ```
 
+CentOS:
+```
+yum install ImageMagick
+```
+
 Mac OS X (using Homebrew):
 ```
 brew install imagemagick
