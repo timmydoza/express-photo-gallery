@@ -46,7 +46,7 @@ describe('the default gallery with no thumbnails', function() {
         expect(err.message).to.eql('Not Found');
         expect(res.status).to.eql(404);
         expect(res.headers['content-type']).to.eql('text/html; charset=utf-8');
-        expect(res.text).to.eql('Cannot GET /thumbs\n');
+        expect(res.text.match('Cannot GET /thumbs')).to.not.be.null;
         done();
       });
   });
@@ -59,7 +59,7 @@ describe('the default gallery with no thumbnails', function() {
         expect(err.message).to.eql('Not Found');
         expect(res.status).to.eql(404);
         expect(res.headers['content-type']).to.eql('text/html; charset=utf-8');
-        expect(res.text).to.eql('Cannot GET /previews\n');
+        expect(res.text.match('Cannot GET /previews')).to.not.be.null;
         done();
       });
   });
