@@ -6,12 +6,15 @@ describe('the isImage function', function() {
     expect(isImage('test.jpg')).to.be.true;
     expect(isImage('test.gif')).to.be.true;
     expect(isImage('test.png')).to.be.true;
+    expect(isImage('test.bmp')).to.be.true;
     expect(isImage('test.jpeg')).to.be.true;
     expect(isImage('test.test2.jpg')).to.be.true;
+    expect(isImage('test.test2.bmp')).to.be.true;
     expect(isImage('test.test2.gif')).to.be.true;
     expect(isImage('test.test2.png')).to.be.true;
     expect(isImage('test.test2.jpeg')).to.be.true;
     expect(isImage('test.JPG')).to.be.true;
+    expect(isImage('test.BMP')).to.be.true;
     expect(isImage('test.GIF')).to.be.true;
     expect(isImage('test.PNG')).to.be.true;
     expect(isImage('test.JPEG')).to.be.true;
