@@ -81,6 +81,11 @@ brew install imagemagick
 brew install graphicsmagick
 ```
 
+Windows using Chocolaty:
+```
+choco install GraphicsMagick
+```
+
 
 Confirm that ImageMagick is properly set up by executing `convert -help` in a terminal.
 
