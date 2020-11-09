@@ -20,6 +20,7 @@
   },
   "license": "GPL-3.0",
   "dependencies": {
+    "@google-cloud/storage": "^5.4.0",
     "deep-equal": "^1.0.1",
     "directory-exists": "^1.0.1",
     "lg-fullscreen": "^1.0.1",

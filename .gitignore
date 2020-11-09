@@ -1,2 +1,4 @@
 node_modules
 testphotos
+.idea
+package-lock.json

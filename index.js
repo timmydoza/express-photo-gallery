@@ -4,6 +4,7 @@ var static = require('serve-static');
 var directoryExists = require('directory-exists').sync;
 var getPayload = require(__dirname + '/lib/get_payload');
 var getS3Payload = require(__dirname + '/lib/get_s3_payload');
+var getGCSPayload = require(__dirname + '/lib/get_gcs_payload');
 var resolveModulePath = require(__dirname + '/lib/resolve_module_path');
 var mustache = require('mustache');
 var template = fs.readFileSync(__dirname + '/lib/template.html').toString();
@@ -21,14 +22,24 @@ module.exports = function(photoPath, options) {
     thumbs: null,
   };
 
+  //get an element in urlObj wich specify aws, gcs, or local folder
   var urlObj = url.parse(photoPath);
-  var s3 = (urlObj.protocol === 's3:');
 
-  if (s3) {
-    paths.bucket = urlObj.hostname;
+  switch (urlObj.protocol) {
+    case ('s3:'):
+      var s3 = true;
+      break;
+
+    case ('https:'):
+      if (urlObj.hostname === 'storage.googleapis.com' ) {
+        var gcs = true;
+      }
+
+      break;
   }
 
-  if (!s3) {
+
+  if (!gcs && !s3) {
 
     if (!directoryExists(photoPath)) throw new Error('Must provide valid path for photos');
 
@@ -53,7 +64,16 @@ module.exports = function(photoPath, options) {
 
   app.get('/', function(req, res) {
 
-    if (s3) {
+    if (gcs) {
+
+      getGCSPayload(photoPath, options, function(payload) {
+        res.send(mustache.render(template, {
+          title: options.title || 'Photo Gallery',
+          data: JSON.stringify(payload)
+        }))
+      });
+
+    } else if(s3) {
 
       getS3Payload(paths.bucket, options, function(payload) {
         res.send(mustache.render(template, {
@@ -62,7 +82,7 @@ module.exports = function(photoPath, options) {
         }));
       });
 
-    } else {
+    }else{
 
       getPayload(paths, options, function(payload) {
         res.send(mustache.render(template, {
@@ -72,7 +92,6 @@ module.exports = function(photoPath, options) {
       });
 
     }
-
   });
 
   return app;
